@@ -1,25 +1,32 @@
-package controller
+package controller 
 
-type UserController struct {
-  basePath string
-  data map(string, interface{})
-  userService UserService
-}
+import (
+	"context"
+)
+func RegisterUserHandler(ctx *fiber.Ctx) {
+	// Decode the request body into the `RegisterRequest` struct
+	var request RegisterRequest
+	if err := json.NewDecoder(ctx.Body).Decode(&request); err != nil {
+			// Handle decoding error
+			return
+	}
 
-func NewUserController(UserService userService ,string basePath) UserController {
-  return UserController{
-    userService: userService
-    basePath: basePath
-  }
-} 
+	// Validate the request
+	if err := request.Validate(); err != nil {
+			// Handle validation errors
+			return
+	}
 
-func(controller *UserController) Get(ctx context.Context, interface{} request) Reponse, error{
-    user , err := controller.userService.Find(request['id'])
-    if err != nil{
-      return nil, err
-    }
-    if user == nil{
-      return nil,common.ErrorRequestNotFound
-    }
-    return UserReponse{ user: user}
+	// Proceed with user registration logic
+	// ...
+	registerUseCase =  usecases.NewRegisterUserCase()
+	var user RegisterRequest
+	user, err : registerUseCase.Execute(ctx, request)
+	if err != nil{
+		return http_errors.BadRequestError{Code:400,Message: fmt.Println("Failed when register user")}
+	}
+	return ctx.SendJson({
+		status: "success",
+		code: 200
+	})
 }
