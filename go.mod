@@ -1,4 +1,4 @@
-module github.com/go-clean-archituecture
+module github.com/thaiha1510/go-clean-archituecture
 
 go 1.21.5
 

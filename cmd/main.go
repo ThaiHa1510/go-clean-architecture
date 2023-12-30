@@ -9,9 +9,9 @@ import(
 	"context"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/filesystem"
-	"github.com/go-clean-archituecture/routes"
-	"github.com/go-clean-archituecture/middlewares"
-	"github.com/go-clean-archituecture/config"
+	"github.com/thaiha1510/go-clean-archituecture/routes"
+	"github.com/thaiha1510/go-clean-archituecture/middlewares"
+	"github.com/thaiha1510/go-clean-archituecture/config"
 )
 // Embed a single file
 //go:embed static/index.html

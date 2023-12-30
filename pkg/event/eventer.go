@@ -1,7 +1,7 @@
 package event
 
 import(
-	"github.com/go-clean-archituecture/valueobjects"
+	"github.com/thaiha1510/go-clean-archituecture/valueobjects"
 )
 
 type Eventer interface {
